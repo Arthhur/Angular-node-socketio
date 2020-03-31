@@ -14,8 +14,10 @@ export class SocketioService {
 
   setUpSocketConnection() {
     this.socket = io(environment.SOCKET_ENDPOINT);
+    this.socket.emit('ftp', 'connexion ftp');
     this.socket.emit('my message', 'give me images');
     this.socket.on('images', (data: string[]) => {
+      console.log(data);
       this.imagesSubject.next(data);
     });
   }
