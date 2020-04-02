@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SnackbarComponent } from './components/admin/snackbar/snackbar.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { HomeComponent } from './components/home/home.component';
+import { ImageComponent } from './components/image/image.component';
 
 
 
@@ -27,7 +28,8 @@ import { HomeComponent } from './components/home/home.component';
     DashboardComponent,
     SnackbarComponent,
     FourOhFourComponent,
-    HomeComponent
+    HomeComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
