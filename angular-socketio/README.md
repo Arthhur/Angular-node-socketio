@@ -1,27 +1,27 @@
 # AngularSocketio
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
+Installation des dépendances pour le projet angular : cd angular-socketio => npm install
 
-## Development server
+Production : cd angular-socket-io => ng build --prod --base-href ''
+Mettre le dossier dist généré sur le serveur et mettre tous les fichiers src à la racine de dist (pas de sous-dossier comme angular-socketio par exemple)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## server
 
-## Code scaffolding
+Installation des dépendances pour le server node js : npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Lancement du server
 
-## Build
+npm start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Application 
 
-## Running unit tests
+Disponible http://carrousel-database.serveftp.com/dist/
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Espace admin
 
-## Running end-to-end tests
+Possibilité d'ajouter ou de supprimer des images
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Base de données MongoDB
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Utilisation de mongoose 

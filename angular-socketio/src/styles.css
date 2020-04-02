@@ -17,3 +17,14 @@ body {
 .fail {
   background-color: #c65555;
 }
+
+a {
+  color: #0288d1;
+}
+.active-link:hover {
+  color: #0288d1;
+}
+
+.active-link {
+  color: #0288d1;
+}
