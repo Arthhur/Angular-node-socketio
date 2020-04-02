@@ -10,48 +10,5 @@ import { ImageService } from './image.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  @ViewChild(CarouselComponent) carousel: CarouselComponent;
-  images$: Observable<string[]>;
-  animationType = AnimationType.Scale;
-
-  animationTypes = [
-    {
-      name: 'Scale',
-      value: AnimationType.Scale
-    },
-    {
-      name: 'Fade',
-      value: AnimationType.Fade
-    },
-    {
-      name: 'Flip',
-      value: AnimationType.Flip
-    },
-    {
-      name: 'Jack In The Box',
-      value: AnimationType.JackInTheBox
-    }
-  ];
-  constructor(private socketService: SocketioService, private imageService: ImageService) {}
-
-  ngOnInit() {
-   /* this.socketService.setUpSocketConnection();
-    this.socketService.imagesSubject.subscribe(img => this.images = img);*/
-    this.imageService.getImages();
-    this.images$ = this.imageService.imagesChanged;
-    setInterval( () => {
-     this.imageService.getImages();
-    }, 60000);
-  }
-
-  setAnimationType(type) {
-    this.animationType = type.value;
-    setTimeout(() => {
-      this.carousel.onNextClick();
-    });
-  }
-
-  ngOnDestroy() {
-  }
+export class AppComponent {
 }

@@ -10,17 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './components/admin/admin.component';
 import { MaterialModule } from './material-module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
 import { SnackbarComponent } from './components/admin/snackbar/snackbar.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -32,23 +25,16 @@ import { SnackbarComponent } from './components/admin/snackbar/snackbar.componen
     AdminComponent,
     NavbarComponent,
     DashboardComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    FourOhFourComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    MatGridListModule,
-    MatCardModule,
-    MatMenuModule
+    MaterialModule
   ],
   entryComponents: [
     SnackbarComponent
