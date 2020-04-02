@@ -1,1 +1,29 @@
-<p>admin works!</p>
+<div class="upload-file">
+  <h1>File Upload</h1>
+  <mat-form-field>
+    <mat-label>Titre de l'image</mat-label>
+    <input id="title" matInput placeholder="Ex. 24h du code">
+  </mat-form-field>
+  <input
+  style="display:none"
+  type="file"
+  (change)="onFileSelected($event)"
+  #fileInput />
+<button
+  class="select-file"
+  type="button"
+  (click)="fileInput.click()"
+>
+  <mat-icon>add</mat-icon>
+  Sélectionner une image (.jpeg, .png)
+</button>
+<p *ngIf="selectedFile" class="filename">{{selectedFile.name}}</p>
+<button
+  class="save"
+  mat-raised-button
+  color="primary"
+  (click)="onUpload()"
+>
+  Save
+</button>
+</div>

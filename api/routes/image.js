@@ -12,20 +12,20 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' ) {
-        cb(null, false);
+    if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg' ) {
+        cb(null,true);
     }
     else {
-        cb(new Error('Only .jpeg or .png files are accepted'), true);
+        cb(new Error('Only .jpeg or .png files are accepted'), false);
     }
 };
 
 const upload = multer({
-    storage: storage
-    /*limits: {
+    storage: storage,
+    fileFilter: fileFilter,
+    limits: {
         fileSize: 1024 * 1024 * 5
     }
-    fileFilter: fileFilter*/
 });
 
 router.get('/', imageController.get_all_images);

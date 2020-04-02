@@ -38,9 +38,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
    /* this.socketService.setUpSocketConnection();
     this.socketService.imagesSubject.subscribe(img => this.images = img);*/
-    this.images$ = this.imageService.getImages();
+    this.imageService.getImages();
+    this.images$ = this.imageService.imagesChanged;
     setInterval( () => {
-      this.images$ = this.imageService.getImages();
+     this.imageService.getImages();
     }, 60000);
   }
 

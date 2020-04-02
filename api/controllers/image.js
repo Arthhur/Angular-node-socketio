@@ -1,6 +1,8 @@
 const ftp = require('basic-ftp');
 const mongoose = require('mongoose');
 const Image = require('../models/image');
+const path = require('path');
+const fs = require('fs');
 
 exports.get_all_images = async (req, res, next) => {
     Image.find()
@@ -41,11 +43,27 @@ exports.post_image = (req, res, next) => {
 
 exports.delete_image = (req, res, next) => {
     const id = req.params.imageId;
-    Image.remove({
+    let imgPath = `${path.resolve(__dirname, '../..')}/uploads/`;
+    Image.findOne({
         _id: id
     })
     .exec()
     .then(result => {
+        console.log(result.img);
+        imgPath += result.img.split('/')[4];
+    })
+    .catch(err => {
+        console.log(err);
+    });
+    Image.deleteOne({
+        _id: id
+    })
+    .exec()
+    .then(result => {
+        fs.unlink(imgPath, err => {
+            if(err) return console.log(err);
+            console.log('file deleted successfully');
+        });  
         res.status(200).json({
             message: "Image deleted"
         });

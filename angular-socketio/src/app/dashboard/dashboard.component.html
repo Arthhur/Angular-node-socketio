@@ -1,0 +1,31 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Gestion des images</h1>
+  <div class="upload-container">
+    <app-admin></app-admin>
+  </div>
+  <mat-grid-list cols="3" rowHeight="50vh">
+    <mat-grid-tile *ngFor="let img of imgs | async" [colspan]="col" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{img.title}}
+            <mat-icon
+              class="delete"
+              (click)="deleteImage(img._id)"
+              matTooltip="Supprimer"
+              matTooltipPosition="above"
+            >
+              delete
+            </mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <img
+            class="image"
+            [src]="img.img"
+            [alt]="img.title" />
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
