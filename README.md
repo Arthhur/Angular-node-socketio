@@ -1,10 +1,10 @@
 # AngularSocketio
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
-Installation des dépendances pour le projet angular : cd angular-socketio => npm install
 
-Production : cd angular-socket-io => ng build --prod --base-href ''
-Mettre le dossier dist généré sur le serveur et mettre tous les fichiers src à la racine de dist (pas de sous-dossier comme angular-socketio par exemple)
+## Installation des dépendances pour le projet angular 
+
+cd angular-socketio => npm install
 
 ## server
 
@@ -14,9 +14,15 @@ Installation des dépendances pour le server node js : npm install
 
 npm start
 
-## Application 
+## Lancement d'angular
 
-Disponible http://carrousel-database.serveftp.com/dist/
+ng serve --o
+
+## Mise en production du FRONT
+
+Production : cd angular-socket-io => ng build --prod --base-href '' <br />
+Mettre les fichiers du dossier dist généré sur le serveur
+
 
 ## Espace admin
 
