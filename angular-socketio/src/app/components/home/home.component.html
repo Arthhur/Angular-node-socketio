@@ -2,7 +2,7 @@
   <ng-container *ngIf="images$ | async as images">
     <app-carousel [slides]="images" [animationType]="animationType"></app-carousel>
   </ng-container>
-  <div class="animition-type-selector">
+  <!--<div class="animition-type-selector">
     <div
       *ngFor="let type of animationTypes"
       class="button"
@@ -11,5 +11,5 @@
     >
       {{ type.name }}
     </div>
-  </div>
+  </div> -->
 </div>

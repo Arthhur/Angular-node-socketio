@@ -1,28 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { map, shareReplay } from 'rxjs/operators';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ImageService } from 'src/app/image.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.css']
 })
-export class ImageComponent implements OnInit {
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+export class ImageComponent implements OnInit, OnDestroy {
+  images: string[];
+  subscription = new Subscription();
 
-  images$: Observable<string[]>;
-
-
-  constructor(private breakpointObserver: BreakpointObserver, private imageService: ImageService) {}
+  constructor(private imageService: ImageService) {}
 
   ngOnInit() {
-    this.images$ = this.imageService.imagesChanged;
+    this.subscription.add(this.imageService.imagesChanged.subscribe(
+      images => this.images = images
+    ));
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
